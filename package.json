@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "packageManager": "pnpm@8.5.0",
+  "workspaces": [
+    "docs"
+  ],
+  "scripts": {
+    "docs:dev": "pnpm run -C docs dev"
+  }
+}
