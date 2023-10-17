@@ -1,3 +1,4 @@
+import { computed, openBlock, createElementBlock, Fragment, createElementVNode, normalizeClass, unref, createCommentVNode, renderSlot } from "vue";
 const installComponent = (app, component, options) => {
   app.component(component.name, component);
 };
@@ -175,7 +176,6 @@ const prop = unobservable({
     };
   }
 });
-const computed = window["Vue"].computed;
 const useButtonClasses = ({ size, type, shape, hover, active, outline, breadth, loading }) => {
   return computed(() => {
     return [
@@ -223,14 +223,6 @@ const useButton = (props, emit) => {
     handleClick
   };
 };
-const _unref = window["Vue"].unref;
-const _createCommentVNode = window["Vue"].createCommentVNode;
-const _renderSlot = window["Vue"].renderSlot;
-const _openBlock = window["Vue"].openBlock;
-const _createElementBlock = window["Vue"].createElementBlock;
-const _normalizeClass = window["Vue"].normalizeClass;
-const _createElementVNode = window["Vue"].createElementVNode;
-const _Fragment = window["Vue"].Fragment;
 const _hoisted_1 = ["disabled"];
 const _hoisted_2 = { key: 0 };
 const _sfc_main = /* @__PURE__ */ Object.assign({
@@ -244,22 +236,22 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
     const classes = useButtonClasses(props);
     const { handleClick } = useButton(props, emit);
     return (_ctx, _cache) => {
-      return _openBlock(), _createElementBlock(
-        _Fragment,
+      return openBlock(), createElementBlock(
+        Fragment,
         null,
         [
-          _createElementVNode("button", {
-            class: _normalizeClass(["n-btn", _unref(classes)]),
+          createElementVNode("button", {
+            class: normalizeClass(["n-btn", unref(classes)]),
             disabled: _ctx.disabled,
-            onClick: _cache[0] || (_cache[0] = (...args) => _unref(handleClick) && _unref(handleClick)(...args))
+            onClick: _cache[0] || (_cache[0] = (...args) => unref(handleClick) && unref(handleClick)(...args))
           }, [
-            _createCommentVNode(' <i class="n-btn-loading-svg inherit flex-center" v-if="loading">\r\n        <n-loading-icon size="16"></n-loading-icon>\r\n      </i>\r\n      <n-icon class="n-btn-i n-btn-i-prefix" v-if="icon" :type="icon"></n-icon> '),
-            _ctx.$slots.default ? (_openBlock(), _createElementBlock("span", _hoisted_2, [
-              _renderSlot(_ctx.$slots, "default")
-            ])) : _createCommentVNode("v-if", true),
-            _createCommentVNode(' <n-icon class="n-btn-i n-btn-i-suffix" v-if="suffixIcon" :type="suffixIcon"></n-icon> ')
+            createCommentVNode(' <i class="n-btn-loading-svg inherit flex-center" v-if="loading">\r\n        <n-loading-icon size="16"></n-loading-icon>\r\n      </i>\r\n      <n-icon class="n-btn-i n-btn-i-prefix" v-if="icon" :type="icon"></n-icon> '),
+            _ctx.$slots.default ? (openBlock(), createElementBlock("span", _hoisted_2, [
+              renderSlot(_ctx.$slots, "default")
+            ])) : createCommentVNode("v-if", true),
+            createCommentVNode(' <n-icon class="n-btn-i n-btn-i-suffix" v-if="suffixIcon" :type="suffixIcon"></n-icon> ')
           ], 10, _hoisted_1),
-          _createCommentVNode(' <button :class="classes">\r\n    <slot />\r\n  </button> ')
+          createCommentVNode(' <button :class="classes">\r\n    <slot />\r\n  </button> ')
         ],
         2112
         /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */

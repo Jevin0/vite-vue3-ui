@@ -1,4 +1,4 @@
-import './init'
+// import './init'
 
 import { createApp } from 'vue'
 

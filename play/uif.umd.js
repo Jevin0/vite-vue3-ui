@@ -1,6 +1,6 @@
 (function(global, factory) {
-  typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory() : typeof define === "function" && define.amd ? define(factory) : (global = typeof globalThis !== "undefined" ? globalThis : global || self, global.uif = factory());
-})(this, function() {
+  typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory(require("vue")) : typeof define === "function" && define.amd ? define(["vue"], factory) : (global = typeof globalThis !== "undefined" ? globalThis : global || self, global.uif = factory(global.Vue));
+})(this, function(vue) {
   "use strict";
   const installComponent = (app, component, options) => {
     app.component(component.name, component);
@@ -179,9 +179,8 @@
       };
     }
   });
-  const computed = window["Vue"].computed;
   const useButtonClasses = ({ size, type, shape, hover, active, outline, breadth, loading }) => {
-    return computed(() => {
+    return vue.computed(() => {
       return [
         "n-btn",
         `n-btn-${type}`,
@@ -227,14 +226,6 @@
       handleClick
     };
   };
-  const _unref = window["Vue"].unref;
-  const _createCommentVNode = window["Vue"].createCommentVNode;
-  const _renderSlot = window["Vue"].renderSlot;
-  const _openBlock = window["Vue"].openBlock;
-  const _createElementBlock = window["Vue"].createElementBlock;
-  const _normalizeClass = window["Vue"].normalizeClass;
-  const _createElementVNode = window["Vue"].createElementVNode;
-  const _Fragment = window["Vue"].Fragment;
   const _hoisted_1 = ["disabled"];
   const _hoisted_2 = { key: 0 };
   const _sfc_main = /* @__PURE__ */ Object.assign({
@@ -248,22 +239,22 @@
       const classes = useButtonClasses(props);
       const { handleClick } = useButton(props, emit);
       return (_ctx, _cache) => {
-        return _openBlock(), _createElementBlock(
-          _Fragment,
+        return vue.openBlock(), vue.createElementBlock(
+          vue.Fragment,
           null,
           [
-            _createElementVNode("button", {
-              class: _normalizeClass(["n-btn", _unref(classes)]),
+            vue.createElementVNode("button", {
+              class: vue.normalizeClass(["n-btn", vue.unref(classes)]),
               disabled: _ctx.disabled,
-              onClick: _cache[0] || (_cache[0] = (...args) => _unref(handleClick) && _unref(handleClick)(...args))
+              onClick: _cache[0] || (_cache[0] = (...args) => vue.unref(handleClick) && vue.unref(handleClick)(...args))
             }, [
-              _createCommentVNode(' <i class="n-btn-loading-svg inherit flex-center" v-if="loading">\r\n        <n-loading-icon size="16"></n-loading-icon>\r\n      </i>\r\n      <n-icon class="n-btn-i n-btn-i-prefix" v-if="icon" :type="icon"></n-icon> '),
-              _ctx.$slots.default ? (_openBlock(), _createElementBlock("span", _hoisted_2, [
-                _renderSlot(_ctx.$slots, "default")
-              ])) : _createCommentVNode("v-if", true),
-              _createCommentVNode(' <n-icon class="n-btn-i n-btn-i-suffix" v-if="suffixIcon" :type="suffixIcon"></n-icon> ')
+              vue.createCommentVNode(' <i class="n-btn-loading-svg inherit flex-center" v-if="loading">\r\n        <n-loading-icon size="16"></n-loading-icon>\r\n      </i>\r\n      <n-icon class="n-btn-i n-btn-i-prefix" v-if="icon" :type="icon"></n-icon> '),
+              _ctx.$slots.default ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_2, [
+                vue.renderSlot(_ctx.$slots, "default")
+              ])) : vue.createCommentVNode("v-if", true),
+              vue.createCommentVNode(' <n-icon class="n-btn-i n-btn-i-suffix" v-if="suffixIcon" :type="suffixIcon"></n-icon> ')
             ], 10, _hoisted_1),
-            _createCommentVNode(' <button :class="classes">\r\n    <slot />\r\n  </button> ')
+            vue.createCommentVNode(' <button :class="classes">\r\n    <slot />\r\n  </button> ')
           ],
           2112
           /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
