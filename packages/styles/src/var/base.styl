@@ -1,0 +1,57 @@
+table
+  width 100%
+  table-layout fixed
+
+// hack
+body.no-select
+  user-select none
+body.e-resize
+  cursor e-resize
+body.s-resize
+  cursor s-resize
+
+[data-draggable]
+  cursor move
+
+.relative
+  position relative
+
+.inherit
+  position absolute
+  left 0
+  top 0
+  right 0
+  bottom 0
+
+.inline-block
+  display inline-block
+
+.flex-center
+  display flex
+  align-items center
+  justify-content center
+
+.flex-row
+  display flex
+  align-items center
+
+.flex-column
+  display flex
+  flex-direction column
+
+.flex-1
+  flex 1
+
+.ellipsis
+  overflow hidden
+  white-space nowrap
+  text-overflow ellipsis
+
+.n-primary-color
+  color $primary-color
+.n-success-color
+  color $success-color
+.n-warning-color
+  color $warning-color
+.n-danger-color
+  color $danger-color

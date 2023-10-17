@@ -1,0 +1,150 @@
+
+// 按钮面颜色
+u-set-btn-fill($color)
+  n-set-color(white, $color, $color)
+  &.hover
+  &:hover
+  &:focus-visible
+    n-set-color(white, tint($color, 20%), tint($color, 20%))
+  &.active
+  &:active
+    n-set-color(white, shade($color, 20%), shade($color, 20%))
+  &[disabled]
+    n-set-color(white, tint($color, 80%), tint($color, 80%))
+
+
+// 按钮线颜色
+u-set-btn-outline($color)
+  n-set-color($color, white, $color)
+  &.hover
+  &:hover
+  &:focus-visible
+    n-set-color(tint($color, 20%), white, tint($color, 20%))
+  &.active
+  &:active
+    n-set-color(shade($color, 20%), white, shade($color, 20%))
+  &[disabled]
+    n-set-color(tint($color, 80%), white, tint($color, 80%))
+
+
+.n-btn
+  n-ellipsis()
+  outline 0
+  user-select none
+  background-image none
+  touch-action manipulation
+  display inline-block
+  text-align center
+  cursor pointer
+  border 1px solid transparent
+  transition color .2s linear,background-color .2s linear,border .2s linear
+  &-radius
+    border-radius 4px
+  &-mini
+    padding 1px 6px
+    n-set-font(12px, 20px)
+    &.n-btn-circle
+      border-radius 12px
+  &-small
+    padding 3px 7px
+    n-set-font(12px, 20px)
+    &.n-btn-circle
+      border-radius 14px
+  &-middle
+    padding 5px 15px
+    n-set-font(12px, 20px)
+    &.n-btn-circle
+      border-radius 16px
+  &-large
+    padding 7px 23px
+    n-set-font(14px, 24px)
+    &.n-btn-circle
+      border-radius 20px
+  &.tight
+    padding-left 7px
+    padding-right @padding-left
+  &.long
+    width 100%
+  &-primary
+    u-set-btn-fill($primary-color)
+  &-primary.outline
+    u-set-btn-outline($primary-color)
+  &-success
+    u-set-btn-fill($success-color)
+  &-success.outline
+    u-set-btn-outline($success-color)
+  &-warning
+    u-set-btn-fill($warning-color)
+  &-warning.outline
+    u-set-btn-outline($warning-color)
+  &-danger
+    u-set-btn-fill($danger-color)
+  &-danger.outline
+    u-set-btn-outline($danger-color)
+  &-default
+    n-set-color($n-color-1, white, $n-color-5)
+    &.hover
+    &:hover
+    &:focus-visible
+      n-set-color($primary-color, white, $primary-color)
+    &.active
+    &:active
+      n-set-color(shade($primary-color, 20%), white, shade($primary-color, 20%))
+    &[disabled]
+      n-set-color(tint($n-color-1, 80%), white, tint($n-color-5, 80%))
+
+  &-text
+  &-link
+    &.hover
+    &:hover
+    &:focus-visible
+      n-set-color($primary-color, $n-color-7, $n-color-7)
+    &.active
+    &:active
+      n-set-color(shade($primary-color, 20%), $n-color-7, $n-color-7)
+  &-text
+    n-set-color($n-color-2, white, white)
+    &[disabled]
+      n-set-color(tint($n-color-2, 80%), white, white)
+  &-link
+    n-set-color($primary-color, transparent, transparent)
+    &[disabled]
+      n-set-color(tint($primary-color, 80%), transparent, transparent)
+
+  &-text-plus
+    n-set-color($x-color-12, transparent, transparent)
+    &.hover
+    &:hover
+    &:focus-visible
+      n-set-color(white, $x-color-12, transparent)
+    &.active
+    &:active
+      n-set-color(white, shade($x-color-13, 20%), transparent)
+    &[disabled]
+      n-set-color(tint($x-color-12, 80%), transparent, transparent)
+
+  &[disabled]
+  &-loading
+    cursor default
+    //pointer-events none
+  &-i
+    font-size 16px
+    width 16px
+    line-height 12px
+  &-i-prefix
+    margin-right 4px
+  &-i-suffix
+    margin-left 4px
+  &-i:only-child
+    margin 0
+  /** loading **/
+  &.loading
+    position relative
+    span
+    .n-btn-i
+      opacity 0
+      visibility hidden
+  &-default .circle
+  &-link .circle
+  &-text .circle
+    stroke $n-color-5 !important

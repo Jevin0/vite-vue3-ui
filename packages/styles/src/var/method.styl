@@ -1,0 +1,61 @@
+// 该文档用于定义项目的样式通用方法
+//font
+n-h1-1()
+  font-size 36px
+  line-height 50px
+n-h1-2()
+  font-size 28px
+  line-height 40px
+n-h1-3()
+  font-size 24px
+  line-height 36px
+n-h1-4()
+  font-size 20px
+  line-height 28px
+n-h1-5()
+  font-size 18px
+  line-height 26px
+
+n-h2()
+  font-size 16px
+  line-height 24px
+
+n-font-m()
+  font-size 14px
+  line-height 22px
+
+n-font-s()
+  font-size 12px
+  line-height 20px
+
+// 文体超出部分省略号
+n-ellipsis()
+  overflow hidden
+  white-space nowrap
+  text-overflow ellipsis
+
+// 设置颜色（主色，背景色，边框）
+n-set-color($color, $background, $border)
+  color $color
+  background-color $background
+  border-color $border
+
+
+// 设置文字（字号，字高）
+n-set-font($size, $height)
+  font-size $size
+  line-height $height
+
+n-absolute($top, $right, $bottom, $left)
+  position absolute
+  top $top
+  right $right
+  bottom $bottom
+  left $left
+
+// 清除浏览器默认样式
+n-reset()
+  outline 0
+  user-select none
+  background-image none
+  touch-action manipulation

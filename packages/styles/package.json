@@ -1,0 +1,12 @@
+{
+  "name": "@uif-next3/styles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.css",
+  "scripts": {
+    "build": "stylus src/index.styl -o index.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
