@@ -2,16 +2,20 @@ const path = require('path')
 const fs = require('fs')
 const { defineConfig, build } = require("vite")
 const vue = require("@vitejs/plugin-vue")
-const nodeResolva = require("@rollup/plugin-node-resolve")
-const commonjs = require("rollup-plugin-commonjs")
-// import nodeResolva from '@rollup/plugin-node-resolve'
-// import commonjs from 'rollup-plugin-commonjs'
+const {viteExternalsPlugin } = require("vite-plugin-externals")
+
 
 
 // 基础配置
 const baseConfig = defineConfig({
   publicDir: false,
-  plugins: [vue(), nodeResolva(), commonjs()]
+  plugins: [
+    vue(),
+    viteExternalsPlugin({
+      vue: 'Vue',
+    })
+
+  ]
 })
 
 const compontsDir = path.resolve(__dirname, "../packages/components")
@@ -20,9 +24,9 @@ const rollupOptions = defineConfig({
   external: ['vue'],
   output: {
     // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-    globals: {
-      vue: 'Vue',
-    },
+    // globals: {
+    //   vue: 'Vue',
+    // }
   },
 })
 
@@ -67,12 +71,14 @@ const buildAll = async () => {
           fileName: "uif",
           formats: ["es", "umd"]
         },
+        minify: false,
         rollupOptions,
         outDir: outputDir
       }
     })
   )
 }
+
 
 const buildLib = async () => {
   await buildAll()

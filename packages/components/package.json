@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@uif-next3/utils": "workspace:^"
+  },
+  "peerDependencies": {
+    "vue": "3.3.4"
   }
 }

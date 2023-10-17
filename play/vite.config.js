@@ -9,6 +9,11 @@ export default defineConfig(async (mode) => {
       host: true,
       https: !!env.HTTPS,
     },
-    plugins: [vue()]
+    plugins: [
+      vue()
+    ],
+    optimizeDeps: {
+      include: ['vue']
+    }
   }
 })
