@@ -39,7 +39,7 @@ const rollupOptions = defineConfig({
   },
 })
 
-const outputDir = path.resolve(__dirname, "../lib")
+const outputDir = path.resolve(__dirname, "../dist")
 const playDir = path.resolve(__dirname, "../play")
 
 
@@ -94,7 +94,7 @@ const buildAll = async () => {
 
 const buildLib = async () => {
   await buildAll()
-  copyFiles()
+  // copyFiles()
 }
 
 buildLib()
