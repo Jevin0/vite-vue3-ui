@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitepress'
 import sidebar from './config/sidebar'
 
+import MdPlugins from './config/plugins'
+
 export default defineConfig({
   title: "demo-ui",
   description: "这是一个demo-ui",
@@ -14,5 +16,9 @@ export default defineConfig({
     // socialLinks: [
     //   { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     // ]
+  },
+
+  markdown: {
+    config: (md) => MdPlugins(md)
   }
 })
