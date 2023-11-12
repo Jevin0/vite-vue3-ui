@@ -6,10 +6,10 @@ import MdPlugins from './config/plugins'
 export default defineConfig({
   title: "demo-ui",
   description: "这是一个demo-ui",
-  srcDir: './examples',
+  // srcDir: './examples',
   themeConfig: {
     nav: [
-      { text: 'component', link: '/component/button' }
+      { text: 'component', link: '/examples/component/button' }
     ],
     sidebar,
 

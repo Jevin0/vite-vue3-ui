@@ -27,7 +27,7 @@ export default (md) => {
 
         if (sourceFileToken.type === 'inline') {
           source = fs.readFileSync(
-            path.resolve(__dirname, '../', '../', 'internal', `${sourceFile}.vue`),
+            path.resolve(__dirname, '../', '../', 'sfc', `${sourceFile}.vue`),
             'utf-8'
           )
         }

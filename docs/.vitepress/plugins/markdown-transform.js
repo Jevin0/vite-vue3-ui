@@ -15,7 +15,8 @@ export function MarkdownTransform () {
     // },
 
     async transform(code, id) {
-      console.log(code, 'code>>>');
+      // console.log(code, 'code>>>');
+      console.log(id, 'id>>>');
       // if (!id.endsWith('.md')) return
 
       // const componentId = path.basename(id, '.md')
