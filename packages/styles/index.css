@@ -503,3 +503,12 @@ body.s-resize {
 .n-btn-text .circle {
   stroke: #cccfd3 !important;
 }
+.n-slide-down-enter-active,
+.n-slide-down-leave-active {
+  transition: height 0.2s;
+  overflow: hidden;
+}
+.n-slide-down-enter,
+.n-slide-down-leave-to {
+  height: 0 !important;
+}

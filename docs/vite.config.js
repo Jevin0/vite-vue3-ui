@@ -3,6 +3,8 @@ import Components from 'unplugin-vue-components/vite'
 
 import { MarkdownTransform } from './.vitepress/plugins/markdown-transform'
 
+// import vue from '@vitejs/plugin-vue'
+
 
 
 export default defineConfig(({ mode }) => {
@@ -15,6 +17,8 @@ export default defineConfig(({ mode }) => {
     },
 
     plugins: [
+      // vue(),
+
       Components({
         dirs: ['.vitepress/vitepress/components'],
 
