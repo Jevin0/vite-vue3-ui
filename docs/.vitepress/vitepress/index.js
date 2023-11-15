@@ -1,4 +1,8 @@
 // import VPApp from './components/vp-app.vue'
+
+import '../../../packages/styles/index.css'
+
+
 import VPApp from 'vitepress/dist/client/theme-default/Layout.vue'
 import 'vitepress/dist/client/theme-default/styles/vars.css'
 import 'vitepress/dist/client/theme-default/styles/base.css'

@@ -13,8 +13,9 @@ const props = defineProps({
 const formatPathDemos = computed(() => {
   const demos = {}
 
+  // 替换完整路径
   Object.keys(props.demos).forEach((key) => {
-    demos[key.replace('../../sfc/', '').replace('.vue', '')] = props.demos[key].default
+    demos[key.replace('../../examples/', '').replace('.vue', '')] = props.demos[key].default
   })
 
   return demos
@@ -25,6 +26,5 @@ const formatPathDemos = computed(() => {
   <ClientOnly>
 
     <Example :file="path" :demo="formatPathDemos[path]" />
-    demo jevin
   </ClientOnly>
 </template>

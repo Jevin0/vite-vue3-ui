@@ -1,4 +1,6 @@
-import UifNextV3 from './uif.mjs'
+import UifNextV3 from '../../../packages/components'
+
+
 import VPApp, { globals } from '../vitepress'
 
 export default {
@@ -7,8 +9,6 @@ export default {
     app.use(UifNextV3)
 
     globals.forEach(([name, value]) => {
-      console.log(name, 'name>>');
-      console.log(value, 'value>>');
       app.component(name, value)
     })
   }

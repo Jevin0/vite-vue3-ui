@@ -1,44 +1,58 @@
+import path from 'path'
+
 export function MarkdownTransform () {
   return {
     name: 'md-transform',
 
     enforce: 'pre',
 
-    // async buildStart() {
-    //   const pattern = `{${[...languages, languages[0]].join(',')}}/component`
-
-    //   compPaths = await glob(pattern, {
-    //     cwd: docRoot,
-    //     absolute: true,
-    //     onlyDirectories: true,
-    //   })
-    // },
-
     async transform(code, id) {
-      // console.log(code, 'code>>>');
-      console.log(id, 'id>>>');
-      // if (!id.endsWith('.md')) return
+      if (!id.endsWith('.md')) return
 
-      // const componentId = path.basename(id, '.md')
-      // const append = {
-      //   headers: [],
-      //   footers: [],
-      //   scriptSetups: [
-      //     `const demos = import.meta.globEager('../../internal/${componentId}/*.vue')`,
-      //   ],
-      // }
+      const componentId = path.basename(id, '.md')
+      const append = {
+        headers: [],
+        footers: [],
+        scriptSetups: [
+          `const demos = import.meta.globEager('../../examples/${componentId}/*.vue')`,
+        ],
+      }
 
-      // code = transformVpScriptSetup(code, append)
+      const combine =  combineMarkdown(
+        code,
+        [combineScriptSetup(append.scriptSetups), ...append.headers],
+        append.footers
+      )
 
-      // if (compPaths.some((compPath) => id.startsWith(compPath))) {
-      //   code = transformComponentMarkdown(id, componentId, code, append)
-      // }
-
-      // return combineMarkdown(
-      //   code,
-      //   [combineScriptSetup(append.scriptSetups), ...append.headers],
-      //   append.footers
-      // )
+      return combine
     },
   }
+}
+
+const combineScriptSetup = (codes) =>
+  `\n<script setup>
+${codes.join('\n')}
+</script>
+`
+
+const combineMarkdown = (
+  code,
+  headers,
+  footers
+) => {
+  const frontmatterEnds = code.indexOf('---\n\n')
+  const firstHeader = code.search(/\n#{1,6}\s.+/)
+  const sliceIndex =
+    firstHeader < 0
+      ? frontmatterEnds < 0
+        ? 0
+        : frontmatterEnds + 4
+      : firstHeader
+
+  if (headers.length > 0)
+    code =
+      code.slice(0, sliceIndex) + headers.join('\n') + code.slice(sliceIndex)
+  code += footers.join('\n')
+
+  return `${code}\n`
 }

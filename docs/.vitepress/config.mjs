@@ -9,7 +9,7 @@ export default defineConfig({
   // srcDir: './examples',
   themeConfig: {
     nav: [
-      { text: 'component', link: '/examples/component/button' }
+      { text: 'component', link: '/document/component/button' }
     ],
     sidebar,
 

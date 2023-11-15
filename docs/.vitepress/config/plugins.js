@@ -3,12 +3,9 @@ import fs from 'fs'
 // import MarkdownIt from 'markdown-it'
 import mdContainer from 'markdown-it-container'
 
-import { ApiTableContainer } from '../plugins/api-table'
 import { highlight } from '../utils/highlight'
 
 
-
-// const localMd = MarkdownIt().use(tag)
 
 export default (md) => {
 
@@ -27,7 +24,7 @@ export default (md) => {
 
         if (sourceFileToken.type === 'inline') {
           source = fs.readFileSync(
-            path.resolve(__dirname, '../', '../', 'sfc', `${sourceFile}.vue`),
+            path.resolve(__dirname, '../', '../', 'examples', `${sourceFile}.vue`),
             'utf-8'
           )
         }
@@ -35,7 +32,6 @@ export default (md) => {
 
         return `<Demo :demos="demos" source="${encodeURIComponent(
           highlight(source, 'vue')
-          // source
         )}" path="${sourceFile}" raw-source="${encodeURIComponent(
           source
         )}" description="${encodeURIComponent(description)}">`
@@ -44,7 +40,5 @@ export default (md) => {
       }
     }
   })
-
-  md.use(ApiTableContainer)
 
 }
