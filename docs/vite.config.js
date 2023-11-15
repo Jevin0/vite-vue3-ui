@@ -19,14 +19,14 @@ export default defineConfig(({ mode }) => {
     plugins: [
       // vue(),
 
-      Components({
-        dirs: ['.vitepress/vitepress/components'],
+      // Components({
+      //   dirs: ['.vitepress/vitepress/components'],
 
-        allowOverrides: true,
+      //   allowOverrides: true,
 
-        // allow auto import and register components used in markdown
-        include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-      }),
+      //   // allow auto import and register components used in markdown
+      //   include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      // }),
 
       MarkdownTransform()
 

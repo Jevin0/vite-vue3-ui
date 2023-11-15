@@ -3,6 +3,7 @@
 </template>
 
 <script setup>
+import {computed} from 'vue'
 // import {prop, inArray, toNumber} from '@uif/next/lib/utils/tools'
 import {iconEmits, iconProps} from './icon'
 
