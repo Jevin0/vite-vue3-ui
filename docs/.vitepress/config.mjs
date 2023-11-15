@@ -7,10 +7,15 @@ export default defineConfig({
   title: "demo-ui",
   description: "这是一个demo-ui",
 
-  transformHead() {
-    console.log('123');
-    return []
-  },
+  head: [
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href: '//icvip-temp.oss-cn-shenzhen.aliyuncs.com/cdn/202311/ni-font.cdn.css?20231102.1436',
+      },
+    ],
+  ],
   // srcDir: './examples',
   themeConfig: {
     nav: [
