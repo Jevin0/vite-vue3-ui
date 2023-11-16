@@ -47,6 +47,9 @@ importers:
       markdown-it:
         specifier: 13.0.1
         version: 13.0.1
+      prism-theme-vars:
+        specifier: ^0.2.4
+        version: 0.2.4
       unplugin-vue-components:
         specifier: 0.20.1
         version: 0.20.1(rollup@2.79.1)(vite@4.4.11)(vue@3.3.4)
@@ -1643,6 +1646,10 @@ packages:
   /preact@10.18.1:
     resolution: {integrity: sha512-mKUD7RRkQQM6s7Rkmi7IFkoEHjuFqRQUaXamO61E6Nn7vqF/bo7EZCmSyrUnp2UWHw0O7XjZ2eeXis+m7tf4lg==}
     dev: true
+
+  /prism-theme-vars@0.2.4:
+    resolution: {integrity: sha512-B3Pht+GCT87sZph7hMRLlCQXzCM0awW7Rhk08RavpqRW4LEQOeqN0uMG4QCWkul2tr8PB61YAOJGUrEW+1uuJA==}
+    dev: false
 
   /prismjs@1.28.0:
     resolution: {integrity: sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==}

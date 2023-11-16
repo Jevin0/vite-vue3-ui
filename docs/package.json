@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "markdown-it": "13.0.1",
+    "prism-theme-vars": "^0.2.4",
     "unplugin-vue-components": "0.20.1"
   }
 }

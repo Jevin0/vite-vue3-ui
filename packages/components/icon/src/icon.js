@@ -10,7 +10,7 @@ export const iconProps = {
   // 自定义class
   custom: prop.string(),
   // 场景，可选值 default,primary, dark, gray
-  scene: prop.inArray(['default', 'primary', 'gray', 'light', 'dark'], '', true),
+  scene: prop.inArray(['default', 'primary', 'gray', 'light', 'dark'], 'default', true),
   // 大小，可选值 12, 16, 20, 24
   size: prop.stringNumber(),
   // 经过样式
