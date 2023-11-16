@@ -1,5 +1,5 @@
 
-import { installComponent } from "@uif-next3/utils"
+import { installComponent } from "@uif-plus/utils"
 import SlideDown from "./src/slide-down.vue"
 
 

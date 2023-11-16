@@ -4,8 +4,8 @@ import sidebar from './config/sidebar'
 import MdPlugins from './config/plugins'
 
 export default defineConfig({
-  title: "demo-ui",
-  description: "这是一个demo-ui",
+  title: "uif-plus",
+  description: "这是一个uif-plus",
 
   head: [
     [
@@ -19,7 +19,8 @@ export default defineConfig({
   // srcDir: './examples',
   themeConfig: {
     nav: [
-      { text: 'component', link: '/document/component/button' }
+      { text: '组件', link: '/document/component/button'},
+      { text: '函数', link: '/document/methods/array/inArray' }
     ],
     sidebar,
 

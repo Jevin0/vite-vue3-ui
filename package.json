@@ -9,25 +9,25 @@
   "scripts": {
     "dev": "pnpm run -C play dev",
     "docs:dev": "pnpm run -C docs dev",
-    "build:component": "pnpm run clean:lib && node ./script/build",
+        "build:component": "pnpm run clean:lib && node ./script/build",
     "build:style": "pnpm run -C packages/styles build",
-    "clean:lib": "rimraf lib"
+    "clean:lib": "rimraf dist"
   },
   "dependencies": {
-    "@uif-next3/components": "workspace:^",
-    "@uif-next3/styles": "workspace:^",
+    "@uif-plus/components": "workspace:^",
+    "@uif-plus/styles": "workspace:^",
     "vue": "3.3.4"
   },
   "exports": {
     ".": {
-      "require": "./lib/uif.umd.js",
-      "import": "./lib/uif.mjs"
+      "require": "./dist/uif.umd.js",
+      "import": "./dist/uif.mjs"
     },
     "./package.json": "./package.json",
-    "./lib/*": "./lib/*"
+    "./lib/*": "./dist/*"
   },
   "files": [
-    "lib",
+    "dist",
     "packages"
   ],
   "devDependencies": {

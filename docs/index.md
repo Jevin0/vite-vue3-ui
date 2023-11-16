@@ -2,8 +2,8 @@
 layout: home
 
 hero:
-  name: "jevin"
-  text: "这是一个demo-ui"
+  name: "uif-plus"
+  # text: "uif-plus"
   # tagline: My great project tagline
   actions:
     - theme: brand

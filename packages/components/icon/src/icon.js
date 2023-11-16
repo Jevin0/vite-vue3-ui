@@ -1,4 +1,4 @@
-import {prop} from '@uif-next3/utils'
+import {prop} from '@uif-plus/utils'
 
 export const iconEmits = {
   click: (event) => event
