@@ -43,31 +43,7 @@ const outputDir = path.resolve(__dirname, "../dist")
 const playDir = path.resolve(__dirname, "../play")
 
 
-const copyFiles = () => {
 
-  fs.readdir(outputDir, (err, files) => {
-    files.forEach((file) => {
-      const sourceFilePath = path.join(outputDir, file);
-      const targetFilePath = path.join(playDir, file);
-
-      // 创建可读流和可写流，并复制文件
-      const readStream = fs.createReadStream(sourceFilePath);
-      const writeStream = fs.createWriteStream(targetFilePath);
-
-      readStream.pipe(writeStream);
-
-      // 监听复制完成事件
-      writeStream.on('finish', () => {
-        console.log(`Copied: ${file}`);
-      });
-
-      // 处理错误
-      writeStream.on('error', (err) => {
-        console.error(`Error copying ${file}: ${err.message}`);
-      });
-    })
-  })
-}
 
 const buildAll = async () => {
   await build(
@@ -95,6 +71,32 @@ const buildAll = async () => {
 const buildLib = async () => {
   await buildAll()
   // copyFiles()
+}
+
+const copyFiles = () => {
+
+  fs.readdir(outputDir, (err, files) => {
+    files.forEach((file) => {
+      const sourceFilePath = path.join(outputDir, file);
+      const targetFilePath = path.join(playDir, file);
+
+      // 创建可读流和可写流，并复制文件
+      const readStream = fs.createReadStream(sourceFilePath);
+      const writeStream = fs.createWriteStream(targetFilePath);
+
+      readStream.pipe(writeStream);
+
+      // 监听复制完成事件
+      writeStream.on('finish', () => {
+        console.log(`Copied: ${file}`);
+      });
+
+      // 处理错误
+      writeStream.on('error', (err) => {
+        console.error(`Error copying ${file}: ${err.message}`);
+      });
+    })
+  })
 }
 
 buildLib()

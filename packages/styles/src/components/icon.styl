@@ -1,0 +1,65 @@
+
+n-set-icon-color($color)
+  cursor pointer
+  &.hover
+  &:hover
+    color $primary-color
+  &.active
+  &:active
+    color shade($primary-color, 20%)
+  &[disabled = true]
+    cursor default
+    color $color
+
+
+.n-icon
+  speak none
+  font-style normal
+  font-weight normal
+  font-variant normal
+  text-transform none
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  &:before
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family 'ni-font' !important
+
+
+.n-icon
+  vertical-align text-top
+  display inline-block
+  text-align center
+  &-default
+    color $n-color-2
+    n-set-icon-color(tint($n-color-2, 80%))
+  &-primary
+    color tint($primary-color, 40%)
+    n-set-icon-color(tint($primary-color, 80%))
+  &-dark
+    color white
+    n-set-icon-color(shade(white, 80%))
+  &-gray
+    color $n-color-4
+    n-set-icon-color(tint($n-color-2, 80%))
+  &-light
+    color $n-color-5
+    n-set-icon-color(tint($n-color-2, 80%))
+
+.n-icon-12
+  width 12px
+  font-size @width
+  line-height @width
+.n-icon-16
+  width 16px
+  font-size @width
+  line-height @width
+.n-icon-20
+  width 20px
+  font-size @width
+  line-height @width
+.n-icon-24
+  width 24px
+  font-size @width
+  line-height @width

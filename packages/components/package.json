@@ -1,5 +1,5 @@
 {
-  "name": "@uif-next3/components",
+  "name": "@uif-plus/components",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,9 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@uif-next3/utils": "workspace:^"
-  },
-  "peerDependencies": {
-    "vue": "3.3.4"
+    "@uif-plus/utils": "workspace:^"
   }
 }

@@ -1,14 +1,14 @@
 
 import { installComponent } from "@uif-plus/utils"
-import Button from "./src/button.vue"
+import Icon from "./src/icon.vue"
 
 
 // 具名导出
-export { Button }
+export { Icon }
 
 // 导出插件
 export default {
   install(app, options) {
-    installComponent(app, Button, options)
+    installComponent(app, Icon, options)
   }
 }
