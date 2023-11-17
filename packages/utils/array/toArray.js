@@ -1,4 +1,4 @@
-import toArrayFrom from './_/toArrayFrom'
+import toArrayFrom from '../_/toArrayFrom'
 
 // 类数组转换成数组
 function toArray (array) {

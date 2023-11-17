@@ -1,5 +1,5 @@
-import isArrayLike from './isArrayLike'
-import isObjectLike from './isObjectLike'
+import isArrayLike from '../array/isArrayLike'
+import isObjectLike from '../object/isObjectLike'
 // import getVue from './getVue'
 
 function unobservable (value) {

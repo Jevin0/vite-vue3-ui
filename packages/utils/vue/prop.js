@@ -1,4 +1,4 @@
-import inArray from './inArray'
+import inArray from './array/inArray'
 import unobservable from './unobservable'
 
 function getDefault (value, def) {

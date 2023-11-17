@@ -1,2 +1,3 @@
-export * from './src/installComponent.js'
-export * from './src/prop.js'
+export * from './array'
+export * from './object'
+export * from './vue'

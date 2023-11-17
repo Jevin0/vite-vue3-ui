@@ -1,4 +1,4 @@
-import isArrayLike from './isArrayLike'
+import isArrayLike from '../array/isArrayLike'
 
 function isObjectLike (value) {
   return typeof value === 'object' && value !== null && !isArrayLike(value)
