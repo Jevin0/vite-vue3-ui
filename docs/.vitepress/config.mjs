@@ -16,17 +16,16 @@ export default defineConfig({
       },
     ],
   ],
-  // srcDir: './examples',
   themeConfig: {
     nav: [
       { text: '组件', link: '/document/component/button'},
       { text: '函数', link: '/document/methods/array/inArray' }
     ],
     sidebar,
-
-    // socialLinks: [
-    //   { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    // ]
+    search: {
+      provider: 'local'
+    }
+    
   },
 
   markdown: {
