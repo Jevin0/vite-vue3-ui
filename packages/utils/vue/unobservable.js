@@ -1,8 +1,8 @@
-import isArrayLike from '../array/isArrayLike'
-import isObjectLike from '../object/isObjectLike'
+import {isArrayLike} from '../array'
+import {isObjectLike} from '../object'
 // import getVue from './getVue'
 
-function unobservable (value) {
+export function unobservable (value) {
   if (isArrayLike(value) || isObjectLike(value)) {
     Object.defineProperty(value, '__v_skip', {
       value: 'UIF',
@@ -17,7 +17,7 @@ function unobservable (value) {
   return value
 }
 
-export default unobservable
+
 
 //
 // const object = { a: 1 }

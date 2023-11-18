@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "pnpm run -C play dev",
     "docs:dev": "pnpm run -C docs dev",
-        "build:component": "pnpm run clean:lib && node ./script/build",
+    "build": "node ./script/build",
+    "buildes": "node ./script/build-es.js",
     "build:style": "pnpm run -C packages/styles build",
     "clean:lib": "rimraf dist"
   },
@@ -36,8 +37,10 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "rimraf": "^5.0.5",
     "rollup": "^2.79.1",
+    "rollup-plugin-esbuild": "4.9.1",
     "rollup-plugin-vue": "6",
     "stylus": "^0.60.0",
+    "unplugin-vue-macros": "0.11.2",
     "vite": "^4.4.11",
     "vite-plugin-externals": "^0.6.2"
   },

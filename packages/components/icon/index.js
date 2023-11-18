@@ -1,14 +1,17 @@
-
-import { installComponent } from "@uif-plus/utils"
+import { withInstall } from "@uif-plus/utils"
 import Icon from "./src/icon.vue"
 
 
-// 具名导出
-export { Icon }
+export const NIcon = withInstall(Icon)
 
-// 导出插件
-export default {
-  install(app, options) {
-    installComponent(app, Icon, options)
-  }
-}
+export default NIcon
+
+// // 具名导出
+// export { Icon }
+
+// // 导出插件
+// export default {
+//   install(app, options) {
+//     installComponent(app, Icon, options)
+//   }
+// }

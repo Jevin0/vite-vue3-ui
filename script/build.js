@@ -3,6 +3,8 @@ const fs = require('fs')
 const { defineConfig, build } = require("vite")
 const vue = require("@vitejs/plugin-vue")
 const commonjs = require("@rollup/plugin-commonjs")
+const nodeResolve = require("@rollup/plugin-node-resolve")
+
 
 // const {viteExternalsPlugin } = require("vite-plugin-externals")
 
@@ -13,6 +15,7 @@ const baseConfig = defineConfig({
   publicDir: false,
   plugins: [
     vue(),
+    nodeResolve(),
     commonjs({
       esmExternals: ['vue']
     })
@@ -27,19 +30,26 @@ const baseConfig = defineConfig({
   resolve: {  dedupe: ['vue']} // this line }
 })
 
-const compontsDir = path.resolve(__dirname, "../packages/components")
+// const compontsDir = path.resolve(__dirname, "../packages/components")
+const UifPlusDir = path.resolve(__dirname, "../packages/uif-plus/index.js")
+const outputDir = path.resolve(__dirname, "../dist1")
+
 
 const rollupOptions = defineConfig({
-  external: ['vue'],
+  // input: UifPlusDir,
+  external: ['vue', '@uif-plus/utils'],
   output: {
-    // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-    globals: {
-      vue: 'Vue',
-    }
+    esModule: true
+  //   // dir: outputDir,
+  //   // format: 'es'
+  //   // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
+  //   // globals: {
+  //   //   vue: 'Vue',
+  //   // }
   },
 })
 
-const outputDir = path.resolve(__dirname, "../dist")
+// const outputDir = path.resolve(__dirname, "../dist")
 const playDir = path.resolve(__dirname, "../play")
 
 
@@ -51,14 +61,16 @@ const buildAll = async () => {
       ...baseConfig,
       build: {
         lib: {
-          entry: compontsDir,
-          name: "uif",
-          fileName: "uif",
-          formats: ["es", "umd"]
+          // entry: compontsDir,
+          entry: UifPlusDir,
+          name: "uif-plus",
+          fileName: "uif-plus",
+          formats: ["es"]
         },
         minify: false,
         rollupOptions,
         outDir: outputDir,
+        sourcemap: true
         // commonjsOptions: {
         //   esmExternals: ['vue']
         // }

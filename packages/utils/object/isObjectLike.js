@@ -1,10 +1,8 @@
-import isArrayLike from '../array/isArrayLike'
+import {isArrayLike} from '../array'
 
-function isObjectLike (value) {
+export function isObjectLike (value) {
   return typeof value === 'object' && value !== null && !isArrayLike(value)
 }
-
-export default isObjectLike
 
 // isObjectLike({})
 // // => true
