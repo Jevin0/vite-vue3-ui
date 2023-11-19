@@ -1,4 +1,4 @@
-import toArray from './toArray'
+import {toArray} from './toArray'
 
 export function inArray (array, value) {
   return toArray(array).some(val => val === value)

@@ -24,4 +24,4 @@ const buttonEmits = {
 };
 
 export { buttonEmits, buttonProps };
-//# sourceMappingURL=button2.mjs.map
+//# sourceMappingURL=button.mjs.map

@@ -1,4 +1,4 @@
-import isLikeArray from './isLikeArray'
+import {isLikeArray} from './isLikeArray'
 
 // 类数组转换成数组
 export function toArrayFrom (array, index) {

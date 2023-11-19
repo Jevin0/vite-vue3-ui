@@ -1,8 +1,8 @@
 import { defineComponent, openBlock, createElementBlock, Fragment, createElementVNode, normalizeClass, unref, createCommentVNode, renderSlot } from 'vue';
 import { useButtonClasses } from './button-custom.mjs';
-import { buttonProps, buttonEmits } from './button2.mjs';
+import { buttonProps, buttonEmits } from './button.mjs';
 import { useButton } from './use-button.mjs';
-import _export_sfc from '../../_virtual/_plugin-vue_export-helper.mjs';
+import _export_sfc from '../../../_virtual/_plugin-vue_export-helper.mjs';
 
 const _hoisted_1 = ["disabled"];
 const _hoisted_2 = { key: 0 };
@@ -48,7 +48,7 @@ return (_ctx, _cache) => {
 }
 
 });
-var Button = /*#__PURE__*/_export_sfc(_sfc_main, [['__file',"C:\\Users\\jevin\\Desktop\\vite-vue3-ui\\packages\\components\\button\\src\\button.vue"]]);
+var Button = /*#__PURE__*/_export_sfc(_sfc_main, [['__file',"F:\\vite-vue3-ui\\packages\\components\\button\\src\\button.vue"]]);
 
 export { Button as default };
-//# sourceMappingURL=button.mjs.map
+//# sourceMappingURL=button2.mjs.map

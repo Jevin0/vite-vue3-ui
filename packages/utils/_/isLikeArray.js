@@ -1,4 +1,4 @@
-import isLength from './isLength'
+import {isLength} from './isLength'
 
 // 判断一个值是否是一个array-like
 // 规则：不等于null，

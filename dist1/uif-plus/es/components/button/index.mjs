@@ -1,5 +1,5 @@
 import { withInstall } from '@uif-plus/utils';
-import Button from './src/button.mjs';
+import Button from './src/button2.mjs';
 
 const NButton = withInstall(Button);
 

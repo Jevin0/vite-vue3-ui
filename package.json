@@ -10,7 +10,7 @@
     "dev": "pnpm run -C play dev",
     "docs:dev": "pnpm run -C docs dev",
     "build": "node ./script/build",
-    "buildes": "node ./script/build-es.js",
+    "buildes": "rimraf dist1 && node ./script/build-es.js",
     "build:style": "pnpm run -C packages/styles build",
     "clean:lib": "rimraf dist"
   },

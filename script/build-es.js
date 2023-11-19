@@ -5,23 +5,40 @@ const vue = require("@vitejs/plugin-vue")
 const {nodeResolve} = require("@rollup/plugin-node-resolve")
 const VueMacros = require("unplugin-vue-macros/rollup")
 const commonjs = require("@rollup/plugin-commonjs")
-const esbuild = require("rollup-plugin-esbuild")
-console.log(esbuild, 'esbuild');
+const {default: esbuild} = require("rollup-plugin-esbuild")
+const glob = require("fast-glob")
+// console.log(esbuild, 'esbuild');
 
 
-const dir = path.resolve(__dirname, '../packages/components')
+const dir = path.resolve(__dirname, '../packages')
 const upRoot = path.resolve(__dirname, '../packages/uif-plus')
 
 const oupdir = path.resolve(__dirname, '../dist1/uif-plus')
 
+
+const excludeFiles = (files) => {
+  const excludes = ['node_modules', 'test', 'mock', 'gulpfile', 'dist']
+  return files.filter(
+    (path) => !excludes.some((exclude) => path.includes(exclude))
+  )
+}
+
 const buildEs = async () => {
+  const input = excludeFiles(
+    await glob('**/*.{js,vue}', {
+      cwd: dir,
+      absolute: true,
+      onlyFiles: true,
+    })
+  )
+
   const bundle = await rollup({
-    input: dir,
+    input,
     // output: {
     //   file: oupdir,
     //   format: 'es',
     // },
-    external: ['vue', '@uif-plus/utils'],
+    external: ['vue'],
     plugins: [
       VueMacros({
         setupComponent: false,
@@ -34,12 +51,14 @@ const buildEs = async () => {
       }),
       nodeResolve(),
       commonjs(),
-      esbuild.default({
+      esbuild({
         sourceMap: true,
         target: 'es2018',
       }),
     ]
   })
+
+  console.log(bundle, "bundle");
 
   await writeBundles(
     bundle,
@@ -69,6 +88,9 @@ function writeBundles(bundle, options) {
 }
 
 buildEs()
+
+
+
 
 
 const buildConfig = {
