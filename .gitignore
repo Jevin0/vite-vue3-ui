@@ -1,4 +1,5 @@
 # Package Manager
 node_modules
 
-lib
+# Bundle
+dist

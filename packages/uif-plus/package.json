@@ -1,3 +1,32 @@
 {
-  "name": "uif-plus"
+  "name": "uif-plus",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./es/index.mjs",
+      "require": "./lib/index.js"
+    },
+    "./es": {
+      "import": "./es/index.mjs"
+    },
+    "./lib": {
+      "require": "./lib/index.js"
+    },
+    "./es/*.mjs": {
+      "import": "./es/*.mjs"
+    },
+    "./es/*": {
+      "import": "./es/*.mjs"
+    },
+    "./lib/*.js": {
+      "require": "./lib/*.js"
+    },
+    "./lib/*": {
+      "require": "./lib/*.js"
+    },
+    "./*": "./*"
+  },
+  "style": "dist/index.css"
 }

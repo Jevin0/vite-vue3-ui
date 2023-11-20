@@ -7,13 +7,12 @@ const VueMacros = require("unplugin-vue-macros/rollup")
 const commonjs = require("@rollup/plugin-commonjs")
 const {default: esbuild} = require("rollup-plugin-esbuild")
 const glob = require("fast-glob")
-// console.log(esbuild, 'esbuild');
 
 
 const dir = path.resolve(__dirname, '../packages')
 const upRoot = path.resolve(__dirname, '../packages/uif-plus')
 
-const oupdir = path.resolve(__dirname, '../dist1/uif-plus')
+const oupdir = path.resolve(__dirname, '../dist/uif-plus')
 
 
 const excludeFiles = (files) => {
@@ -38,7 +37,7 @@ const buildEs = async () => {
     //   file: oupdir,
     //   format: 'es',
     // },
-    external: ['vue'],
+    external: ['vue', '@vue'],
     plugins: [
       VueMacros({
         setupComponent: false,
@@ -49,16 +48,20 @@ const buildEs = async () => {
           })
         },
       }),
-      nodeResolve(),
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.json'],
+      }),
       commonjs(),
       esbuild({
         sourceMap: true,
         target: 'es2018',
+        loaders: {
+          '.vue': 'js',
+        }
       }),
-    ]
+    ],
+    treeshake: false,
   })
-
-  console.log(bundle, "bundle");
 
   await writeBundles(
     bundle,
@@ -75,6 +78,8 @@ const buildEs = async () => {
     })
   )
 
+
+
   // console.log(bundle, 'bundle');
   // build(
   //   defineConfig({
@@ -88,8 +93,6 @@ function writeBundles(bundle, options) {
 }
 
 buildEs()
-
-
 
 
 

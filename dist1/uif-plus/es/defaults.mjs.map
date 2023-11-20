@@ -1,1 +1,0 @@
-{"version":3,"file":"defaults.mjs","sources":["../../../packages/uif-plus/defaults.js"],"sourcesContent":["import { makeInstaller } from './make-installer'\r\nimport Components from './component'\r\n// import Plugins from './plugin'\r\n\r\nexport default makeInstaller([...Components])\r\n"],"names":[],"mappings":";;;AAEA,gBAAe,aAAa,CAAC,CAAC,GAAG,UAAU,CAAC,CAAC;;;;"}

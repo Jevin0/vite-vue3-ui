@@ -9,14 +9,14 @@
   "scripts": {
     "dev": "pnpm run -C play dev",
     "docs:dev": "pnpm run -C docs dev",
-    "build": "node ./script/build",
-    "buildes": "rimraf dist1 && node ./script/build-es.js",
-    "build:style": "pnpm run -C packages/styles build",
-    "clean:lib": "rimraf dist"
+    "build": "rimraf dist && node ./script/build",
+    "buildes": "rimraf dist && node ./script/build-es.js",
+    "build:style": "pnpm run -C packages/styles build"
   },
   "dependencies": {
     "@uif-plus/components": "workspace:^",
     "@uif-plus/styles": "workspace:^",
+    "@uif-plus/utils": "workspace:^",
     "vue": "3.3.4"
   },
   "exports": {
@@ -33,8 +33,8 @@
   ],
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "rimraf": "^5.0.5",
     "rollup": "^2.79.1",
     "rollup-plugin-esbuild": "4.9.1",

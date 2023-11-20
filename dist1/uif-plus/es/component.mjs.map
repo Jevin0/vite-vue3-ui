@@ -1,1 +1,0 @@
-{"version":3,"file":"component.mjs","sources":["../../../packages/uif-plus/component.js"],"sourcesContent":["import { NButton } from '@uif-plus/components/button'\r\n\r\nexport default {\r\n  NButton\r\n}"],"names":[],"mappings":";;AACA,iBAAe;AACf,EAAE,OAAO;AACT,CAAC;;;;"}
